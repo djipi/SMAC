@@ -25,12 +25,13 @@ void main(int argc, char **argv) {
 	char *s;
 	int namcnt;
 	char ln[256];
+	errno_t	err;
 
 	if (argc == 2)
-		if ((kfp = fopen(argv[1], "w")) == NULL)
+		if ((err = fopen_s(&kfp, argv[1], "w")))
 			error("Cannot create: %s", argv[1]);
 
-	while (gets(ln) != NULL)
+	while (gets_s(ln, sizeof(ln)) != NULL)
 	{
 		++lineno;			/* bump line# */
 		if (*ln == '#')		/* ignore comments */
