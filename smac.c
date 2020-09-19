@@ -5,6 +5,7 @@
 // SMAC Derived from MADMAC v1.07 Written by Landon Dyer, 1986
 // Source Utilised with the Kind Permission of Landon Dyer
  
+#include <stdio.h>
 #include "smac.h"
 #include "error.h"
 #include "listing.h"
@@ -41,7 +42,7 @@ int endian;                                                 // Processor endiane
 char *objfname;                                             // Object filename pointer
 char *firstfname;                                           // First source filename
 char *cmdlnexec;                                            // Executable name, pointer to ARGV[0]
-char *searchpath;                                           // Search path for include files 
+char searchpath[2048];                                      // Search path for include files
 char defname[] = "noname.o";                                // Default output filename
 
 // Under Windows and UNIX malloc() is an expensive call, so for small amounts of memory we allocate
@@ -404,7 +405,8 @@ void display_help(void) {
    printf("   -e[errorfile]         send error messages to file, not stdout\n");
    printf("   -f[format]            output object file format\n");
    printf("                         b: BSD (use this for Jaguar)\n");
-   printf("   -i[path]              directory to search for include files\n");
+   printf("   -i[path]              semicolon-seperated pathnames to search for include files\n");
+   printf("                         or use multiple option in case of non-compatible make\n");
    printf("   -l[filename]          create an output listing file\n");
    printf("   -o file               output file name\n");
    printf("   -r[size]              pad segments to boundary size specified\n");
@@ -451,7 +453,7 @@ int process(int argc, char **argv) {
    glob_flag = 0;                                           // Initialise .globl flag
    sbra_flag = 0;                                           // Initialise short branch flag
    debug = 0;                                               // Initialise debug flag
-   searchpath = NULL;                                       // Initialise search path
+   searchpath[0] = 0;                                       // Initialise search path
    objfname = NULL;                                         // Initialise object filename
    list_fname = NULL;                                       // Initialise listing filename
    err_fname = NULL;                                        // Initialise error filename
@@ -531,8 +533,12 @@ int process(int argc, char **argv) {
                break;
             case 'i':                                       // Set directory search path
             case 'I':
-               searchpath = argv[argno] + 2;
-               break;
+                if (searchpath[0])
+                {
+                    strcat(searchpath, ";");
+                }
+                strcat(searchpath, argv[argno] + 2);
+                break;
             case 'l':                                       // Produce listing file
             case 'L':
                list_fname = argv[argno] + 2;
