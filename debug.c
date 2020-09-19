@@ -236,10 +236,10 @@ int dumptok(TOKEN *tk) {
             printf("CONST=%ld", *tk++);
             break;
          case STRING:                                       // STRING <address>
-            printf("STRING='%s'", *tk++);
+            printf("STRING='%ld'", *tk++);
             break;
          case SYMBOL:                                       // SYMBOL <address> 
-            printf("SYMBOL='%s'", *tk++);
+            printf("SYMBOL='%ld'", *tk++);
             break;
          case EOL:                                          // End of line 
             printf("EOL");
