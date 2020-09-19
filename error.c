@@ -12,7 +12,18 @@
 int errcnt;                                                 // Error count
 char *err_fname;                                            // Name of error message file
 
-static char nl[] = "\n";
+static char nl[] = "\n";                                    // end of line usualy encoded for non-windows system
+
+char* interror_msg[] = {
+    "Unknown internal error",                               // Error not referenced, should not be displayed
+    "Unknown internal error",                               // Error not referenced, should not be displayed
+    "Bad MULTX entry in chrtab",                            // Error #2
+    "Unknown internal error",                               // Error not referenced, should not be displayed
+    "Bad fixup type",                                       // Error #4
+    "Bad operator in expression stream",                    // Error #5
+    "Can't find generated code in section",                 // Error #6
+    "Fixup (loc) out of range"                              // Error #7
+};
 
 //
 // --- Report error if not at EOL ------------------------------------------------------------------
@@ -56,6 +67,7 @@ void err_setup(void) {
    }
 }
 
+
 //
 // --- Display Error Message -----------------------------------------------------------------------
 //
@@ -75,6 +87,7 @@ int error(char *s) {
 
    return(ERROR);
 }
+
 
 int errors(char *s, char *s1) {
    char buf[EBUFSIZ];
@@ -151,7 +164,7 @@ int interror(int n) {
    char buf[EBUFSIZ];
 
    err_setup();
-   sprintf(buf, "%s[%d]: Internal Error Number %d%s", curfname, curlineno, n, nl);
+   sprintf(buf, "%s[%d]: Internal Error Number %d : %s%s", curfname, curlineno, n, interror_msg[n], nl);
    if(listing > 0) ship_ln(buf);
    if(err_flag) write(err_fd, buf, (LONG)strlen(buf));
    else printf("%s", buf);
