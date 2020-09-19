@@ -449,9 +449,9 @@ int evexpr(TOKEN *tk, VALUE *a_value, WORD *a_attr, SYM **a_esym) {
             // Comparison operators must have two values that
             // are in the same segment, but that's the only requirement.
             //
-            // CW: constants are never in the same segment as they are
-            // ABS, not TDB. Use the same fix as applied to "-" since
-            // comparisons are just subtraction without saving the result.
+            // cw: Uh, constants will never be in the same segment. Apply
+            // same "fix" as done for the "-" token since all comparisons
+            // are essentially just a "-" without saving the result.
          case LE:
             --sattr;
             --sval;

@@ -1,0 +1,23 @@
+v1.0.19 (TBA)
+-------------
+0) Set projects to Visual Studio 2019.
+-- 68kgen, kwgen, and smac.
+1) Update the 68kgen tool to work with Visual Studio.
+-- Add the 68k generated opcode table source code.
+2) Update the keyword transition-table generation utility (kwgen) to work with Visual Studio.
+-- Added the keyword & mnemonic definition and state machine tables source code.
+3) Multiple search paths option support.
+-- Added the possibility to use several search paths option.
+4) Display better internal error message.
+-- Instead of an error number, it will also display a dedicated message.
+5) Fix some warnings.
+
+Known issues
+============
+1) SMAC 64 bits version doesn't run properly
+
+Project information
+===================
+1) Code based on the smac-v1.0.18-src.zip package
+2) Visual Studio 2019 project support for 32 bits
+3) The project is set at https://github.com/djipi/SMAC
