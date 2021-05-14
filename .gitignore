@@ -3,3 +3,4 @@
 *.o
 Win32/
 x64/
+Samples/
