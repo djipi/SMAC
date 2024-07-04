@@ -2,8 +2,8 @@
 SubQMod's Macro Assembler for Atari Jaguar.
 
 ## Project
-Visual Studio 2022.
-makefile for Microsoft Visual C.
+Visual Studio 2022.<br>
+makefile for Visual Studio C Compiler.<br>
 makefile for GNU.
 
 ## Platform

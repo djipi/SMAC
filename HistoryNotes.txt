@@ -11,6 +11,8 @@ v1.0.19 (TBA)
 4) Display better internal error message.
 -- Instead of an error number, it will also display a dedicated message.
 5) Fix some warnings.
+6) Updated the makefile for Visual Studio C Compiler.
+-- Support more recent Visual Studio version.
 
 Project information
 ===================
