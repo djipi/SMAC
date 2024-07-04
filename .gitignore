@@ -1,6 +1,7 @@
 .vs
 *.user
 *.o
+*.obj
 Win32/
 x64/
 Samples/
