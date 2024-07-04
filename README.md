@@ -1,6 +1,14 @@
 # SMAC
 SubQMod's Macro Assembler for Atari Jaguar.
 
+## Project
+Visual Studio 2022.
+makefile for Microsoft Visual C.
+makefile for GNU.
+
+## Platform
+Windows 32 bits.
+
 ## Introduction
 SubQMod’s MACro Assembler (pronounced ‘smack’), which generates code for the processors of the classic and powerful Atari Jaguar console. SMAC is a fast, single pass, assembler that supports includes files, macros, local and external symbols, limited control structures and other features. It will generate code for the Jaguar’s key and most powerful chips, the GPU and DSP RISC processors, as well as the Motorola 68000 processor.
 
