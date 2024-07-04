@@ -1,6 +1,6 @@
 v1.0.19 (TBA)
 -------------
-0) Set projects to Visual Studio 2019.
+0) Set projects to Visual Studio 2022.
 -- 68kgen, kwgen, and smac.
 1) Update the 68kgen tool to work with Visual Studio.
 -- Add the 68k generated opcode table source code.
@@ -12,12 +12,8 @@ v1.0.19 (TBA)
 -- Instead of an error number, it will also display a dedicated message.
 5) Fix some warnings.
 
-Known issues
-============
-1) SMAC 64 bits version doesn't run properly
-
 Project information
 ===================
 1) Code based on the smac-v1.0.18-src.zip package
-2) Visual Studio 2019 project support for 32 bits
+2) Visual Studio 2022 project support for Windows 32 bits
 3) The project is set at https://github.com/djipi/SMAC
